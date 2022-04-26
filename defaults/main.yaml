@@ -2,8 +2,11 @@
 
 wan_interface: eth0
 lan_interface: eth1
+exclude_interface: lo
 
 lan_ip_range: 192.168.0.0/24
+
+dhcp_enabled: yes
 dhcp_range: 192.168.0.100,192.168.0.250
 fixed_leases: []
 

@@ -1,6 +1,14 @@
 interface={{ lan_interface }}
+bind-interfaces
+
+{% if exclude_interface %}
+except-interface={{ exclude_interface }}
+{% endif %}
+
+{% if dhcp_enabled %}
 dhcp-range={{ dhcp_range }},{{ lease_period }} 
 
 {% for mac, ip in fixed_leases %}
 dhcp-host={{ mac }},{{ ip }}
 {% endfor %}
+{% endif %}

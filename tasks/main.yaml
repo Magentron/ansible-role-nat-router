@@ -1,11 +1,10 @@
 ---
 - name: Install tools
   apt:
-    name: "{{ item }}"
-  with_items:
-    - dnsmasq
-    - netfilter-persistent
-    - iptables-persistent
+    name:
+      - dnsmasq
+      - netfilter-persistent
+      - iptables-persistent
 
 - name: NAT
   iptables:

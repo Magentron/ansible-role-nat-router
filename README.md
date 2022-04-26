@@ -14,9 +14,17 @@ Name of external network interface.
 
     lan_interface: eth1
 
+Name of network interface not to listen to.
+
+    exclude_interface: lo
+
 Name of internal network interface.
 
     lan_ip_range: 192.168.0.0/24
+
+Enable DHCP functionality in dnsmasq.
+
+    dhcp_enabled: yes
 
 IP address range of the internal network.
 
@@ -43,7 +51,9 @@ List of port forwards.
         - role: nat-router
           wan_interface: enp4s0
           lan_interface: enp6s0
+          exclude_interface: lo
           lan_ip_range: 192.168.1.0/24
+          dhcp_enabeld: yes
           dhcp_range: 192.168.1.100,192.168.1.200
           fixed_leases:
             - ["66-40-3B-5E-06-F0", "192.168.1.100"]
